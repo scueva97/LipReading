@@ -13,7 +13,7 @@ names=[]
 for i in range(1,len(sys.argv)):
 	names.append(sys.argv[i])
 
-path='/home/user/LipReading/GRID'
+path='/Users/scueva/Documents/CU/Senior/Spring/DVMM/GRID'
 
 THRESH_FRAME_COUNT=76
 
@@ -40,7 +40,7 @@ for i in names:
 		format_num1="{number:06}".format(number=j)
 		cap = cv2.VideoCapture(str(format_num1)+'.avi')
 
-		frameCount = int(cap.get(cv2.cv.CV_CAP_PROP_FRAME_COUNT))+1
+		frameCount = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))+1
 
 		if frameCount==1:
 			numfiles+=1
@@ -52,7 +52,7 @@ for i in names:
 		with open(path+'/valid_videos.txt', 'a') as file1:
 			file1.write(path+'/Video/s'+str(i)+'/face/'+str(format_num1)+'.avi\n')
 		with open(path+'/valid_aud_specs.txt', 'a') as file2:
-			file2.write(path+'/Audio/s'+str(i)+'/AudSpecs/'+str(format_num1)+'.mat\n')
+			file2.write(path+'/AudioSpecs/s'+str(i)+'/'+str(format_num1)+'.mat\n')
 
 
 			#
